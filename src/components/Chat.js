@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import ChatInput from "./Chatinput";
+import ChatMessage from "./ChatMessage";
 function Chat() {
   return (
     <Container>
@@ -11,7 +13,9 @@ function Chat() {
             # Channel 1<StarOutlineIcon style={{ height: 18 + "px" }} />
           </ChannelName>
           <ChannelDetails>
-            <DetailsText>Details</DetailsText>
+            <DetailsText>
+              <div>Details</div>
+            </DetailsText>
             <DetailsIcons>
               <InfoOutlinedIcon style={{ height: 35 + "px" }} />
             </DetailsIcons>
@@ -21,7 +25,10 @@ function Chat() {
           Company-wide announcements and work-based matters
         </HeaderBottomRow>
       </ChatHeader>
-      <ChatBlock></ChatBlock>
+      <MessageContainer>
+        <ChatMessage />
+      </MessageContainer>
+      <ChatInput></ChatInput>
     </Container>
   );
 }
@@ -30,19 +37,18 @@ const Container = styled.div`
   width: 99%;
   border-right: solid 1px #e8eaf6;
   display: grid;
-  grid-template-rows: 80px auto;
+  grid-template-rows: 64px auto min-content;
 `;
 const ChatHeader = styled.div`
   display: grid;
   grid-template-rows: 50% 50%;
   font-size: 15px;
-  background-color: #e8eaf6;
+  border-bottom: solid 2px #e8eaf6;
 `;
 const ChatBlock = styled.div``;
 const HeaderBottomRow = styled.div`
   padding-left: 17px;
   font-size: small;
-  border-bottom: solid 3px 3px #e8eaf6;
   color: gray;
 `;
 const HeaderTopRow = styled.div`
@@ -71,3 +77,4 @@ const DetailsIcons = styled.div`
   display: flex;
   align-items: center;
 `;
+const MessageContainer = styled.div``;
